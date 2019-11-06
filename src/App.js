@@ -65,21 +65,30 @@ And here. | Okay. | I think we get it.
       input: event.target.value
     });
   };
+
   render() {
     return (
-      <div className="App container">
-        <textarea
-          value={this.state.input}
-          onChange={this.handleChange}
-          id="editor"
-        ></textarea>
+      <div className="App container-fluid">
+        <div className="row m-5">
+          <div className="col-md-6">
+            <p>Editor</p>
+            <textarea
+              className="border p-5 text-primary"
+              value={this.state.input}
+              onChange={this.handleChange}
+              id="editor"
+            ></textarea>
+          </div>
 
-        <p
-          id="preview"
-          className="border"
-          dangerouslySetInnerHTML={{ __html: marked(this.state.input) }}
-          innerHTML={marked(this.state.input)}
-        ></p>
+          <div className="col-md-6">
+            <p>Preview</p>
+            <article
+              id="preview"
+              className="border p-5 text-secondary"
+              dangerouslySetInnerHTML={{ __html: marked(this.state.input) }}
+            ></article>
+          </div>
+        </div>
       </div>
     );
   }
